@@ -5,8 +5,11 @@ WORKDIR /app
 # add `/app/node_modules/.bin` to $PATH
 ENV PATH /app/node_modules/.bin:$PATH
 # install application dependencies
+RUN npm i -g react react-dom react-scripts
+
 COPY package.json ./
 COPY package-lock.json ./
+
 RUN npm i
 # add app
 COPY . ./
