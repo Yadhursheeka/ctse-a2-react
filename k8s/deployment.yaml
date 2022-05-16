@@ -1,0 +1,19 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: react-app
+spec:
+  selector:
+    matchLabels:
+      app: react-app
+  replicas: 2
+  template:
+    metadata:
+      labels:
+        app: react-app
+    spec:
+      containers:
+        - name: react-app
+          image: gcr.io/golden-sandbox-343808/github.com/arosh-segar/ctse-a2-react
+          ports:
+            - containerPort: 3000
